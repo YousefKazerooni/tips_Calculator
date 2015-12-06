@@ -14,6 +14,7 @@
 		6AD036E81C0FDEBB003BF306 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AD036E61C0FDEBB003BF306 /* LaunchScreen.storyboard */; };
 		6AD036F31C0FDEBC003BF306 /* tips_CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD036F21C0FDEBC003BF306 /* tips_CalculatorTests.swift */; };
 		6AD036FE1C0FDEBC003BF306 /* tips_CalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD036FD1C0FDEBC003BF306 /* tips_CalculatorUITests.swift */; };
+		6AD0370C1C13BFC5003BF306 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD0370B1C13BFC5003BF306 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		6AD036F91C0FDEBC003BF306 /* tips_CalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tips_CalculatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AD036FD1C0FDEBC003BF306 /* tips_CalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tips_CalculatorUITests.swift; sourceTree = "<group>"; };
 		6AD036FF1C0FDEBC003BF306 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6AD0370B1C13BFC5003BF306 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				6AD036DD1C0FDEBB003BF306 /* AppDelegate.swift */,
 				6AD036DF1C0FDEBB003BF306 /* ViewController.swift */,
 				6AD036E11C0FDEBB003BF306 /* Main.storyboard */,
+				6AD0370B1C13BFC5003BF306 /* SettingsViewController.swift */,
 				6AD036E41C0FDEBB003BF306 /* Assets.xcassets */,
 				6AD036E61C0FDEBB003BF306 /* LaunchScreen.storyboard */,
 				6AD036E91C0FDEBB003BF306 /* Info.plist */,
@@ -258,6 +261,7 @@
 			files = (
 				6AD036E01C0FDEBB003BF306 /* ViewController.swift in Sources */,
 				6AD036DE1C0FDEBB003BF306 /* AppDelegate.swift in Sources */,
+				6AD0370C1C13BFC5003BF306 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +402,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = tips_Calculator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.ccsf.tips-Calculator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -409,6 +414,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = tips_Calculator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.ccsf.tips-Calculator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -482,6 +488,7 @@
 				6AD037041C0FDEBC003BF306 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6AD037051C0FDEBC003BF306 /* Build configuration list for PBXNativeTarget "tips_CalculatorTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +497,7 @@
 				6AD037071C0FDEBC003BF306 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6AD037081C0FDEBC003BF306 /* Build configuration list for PBXNativeTarget "tips_CalculatorUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +506,7 @@
 				6AD0370A1C0FDEBC003BF306 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
