@@ -8,12 +8,18 @@
 
 import UIKit
 
+
+
+
+
 class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let userDefaults = NSUserDefaults.standardUserDefaults()
 
-        // Do any additional setup after loading the view.
+        // Set up values --- ViewDid Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
