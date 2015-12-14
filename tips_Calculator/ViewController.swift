@@ -32,13 +32,16 @@ class ViewController: UIViewController {
     
     func updatePercentageTitle ()
     {
-        tipControl.setTitle("\(userDefaults.integerForKey(lowTipKey))", forSegmentAtIndex:0)
-        tipControl.setTitle("\(userDefaults.integerForKey(midTipKey))", forSegmentAtIndex:1)
-        tipControl.setTitle("\(userDefaults.integerForKey(highTipKey))", forSegmentAtIndex:2)
+        tipControl.setTitle("\(userDefaults.integerForKey(lowTipKey))%", forSegmentAtIndex:0)
+        tipControl.setTitle("\(userDefaults.integerForKey(midTipKey))%", forSegmentAtIndex:1)
+        tipControl.setTitle("\(userDefaults.integerForKey(highTipKey))%", forSegmentAtIndex:2)
     }
     
     func updatePercentage ()
     {
+        let currencyFormatter = NSNumberFormatter()
+        currencyFormatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
+        currencyFormatter.locale = NSLocale.currentLocale()
         
         let tipPercentages = [ Double(userDefaults.floatForKey(lowTipKey))/100.0, Double (userDefaults.floatForKey(midTipKey))/100.0, Double (userDefaults.floatForKey(highTipKey))/100.0]
         let tipPercentage = tipPercentages[ tipControl.selectedSegmentIndex]
@@ -50,8 +53,8 @@ class ViewController: UIViewController {
         //tipLabel.text = " $\(tip)"
         //totalLabel.text = " $\(total)"
         
-        tipLabel.text = String (format: "$%.2f", tip )
-        totalLabel.text = String (format: "$%.2f", total )
+        tipLabel.text = currencyFormatter.stringFromNumber(tip)
+        totalLabel.text = currencyFormatter.stringFromNumber(total)
         
     }
     
@@ -59,6 +62,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        
         
         self.billField.becomeFirstResponder()
         tipLabel.text = "$0.00"
