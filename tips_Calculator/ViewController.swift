@@ -10,21 +10,65 @@ import UIKit
 
 class ViewController: UIViewController {
 
+ 
+
     @IBOutlet weak var tipControl: UISegmentedControl!
     @IBOutlet weak var billField: UITextField!
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     
+    let userDefaults = NSUserDefaults.standardUserDefaults()
+    
+
+    
+    //opportunity to save everything
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        updatePercentageTitle()
+        updatePercentage()
+    }
+    
+    
+    
+    func updatePercentageTitle ()
+    {
+        tipControl.setTitle("\(userDefaults.integerForKey(lowTipKey))", forSegmentAtIndex:0)
+        tipControl.setTitle("\(userDefaults.integerForKey(midTipKey))", forSegmentAtIndex:1)
+        tipControl.setTitle("\(userDefaults.integerForKey(highTipKey))", forSegmentAtIndex:2)
+    }
+    
+    func updatePercentage ()
+    {
+        
+        let tipPercentages = [ Double(userDefaults.floatForKey(lowTipKey))/100.0, Double (userDefaults.floatForKey(midTipKey))/100.0, Double (userDefaults.floatForKey(highTipKey))/100.0]
+        let tipPercentage = tipPercentages[ tipControl.selectedSegmentIndex]
+        
+        let billAmount = NSString(string: billField.text!).doubleValue
+        let tip = billAmount * tipPercentage
+        let total = billAmount + tip
+        
+        //tipLabel.text = " $\(tip)"
+        //totalLabel.text = " $\(total)"
+        
+        tipLabel.text = String (format: "$%.2f", tip )
+        totalLabel.text = String (format: "$%.2f", total )
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-    
+        
+        self.billField.becomeFirstResponder()
         tipLabel.text = "$0.00"
         totalLabel.text = "$0.00"
+        //updatePercentage()
+        
     }
     
+    //Why does nothing happen as I add these?
    
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -32,24 +76,15 @@ class ViewController: UIViewController {
 
     @IBAction func onEditingChanged(sender: AnyObject) {
     
-        let tipPercentages = [ 0.18, 0.2, 0.22]
-        let tipPercentage = tipPercentages[ tipControl.selectedSegmentIndex]
-        
-        let billAmount = NSString(string: billField.text!).doubleValue
-        let tip = billAmount * tipPercentage
-        let total = billAmount + tip
-        
-        tipLabel.text = " $\(tip)"
-        totalLabel.text = " $\(total)"
-        
-        tipLabel.text = String (format: "$%.2f", tip )
-        totalLabel.text = String (format: "$%.2f", total )
-     
+        updatePercentage()
     }
 
     @IBAction func onTap(sender: AnyObject) {
     
         view.endEditing (true)
     }
+    
+
+    
 }
 
