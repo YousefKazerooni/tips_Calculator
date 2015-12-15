@@ -8,14 +8,19 @@
 
 import UIKit
 
+let lastBillAmout = "Last_Bill_Amount"
+let lastUsed = "Last_Used"
+
 class ViewController: UIViewController {
 
- 
+
+    
 
     @IBOutlet weak var tipControl: UISegmentedControl!
     @IBOutlet weak var billField: UITextField!
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
+    
     
     let userDefaults = NSUserDefaults.standardUserDefaults()
     
@@ -26,6 +31,8 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
         updatePercentageTitle()
         updatePercentage()
+        
+        
     }
     
     
@@ -63,12 +70,24 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        //Checking when the app was last used
+        let timeNow = NSDate()
+        let timeLast = userDefaults.objectForKey(lastUsed) as? NSDate
         
+        if ( timeLast != nil && timeNow.timeIntervalSinceDate(timeLast!) < 600)
+        {
+            billField.text = userDefaults.stringForKey(lastBillAmout)
+        }
+
         
+        //making the textfield as the first responder
         self.billField.becomeFirstResponder()
+        
+       
+        //intializing the labels on the first launch
         tipLabel.text = "$0.00"
         totalLabel.text = "$0.00"
-        //updatePercentage()
+       
         
     }
     
@@ -89,6 +108,14 @@ class ViewController: UIViewController {
         view.endEditing (true)
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        userDefaults.setObject(NSDate(), forKey: lastUsed)
+        userDefaults.setObject(billField.text, forKey: lastBillAmout)
+        userDefaults.synchronize()
+        
+    }
 
     
 }
