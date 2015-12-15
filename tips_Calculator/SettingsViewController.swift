@@ -28,6 +28,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var highestDecrease: UIButton!
     //back to default
     @IBOutlet weak var initialDefault: UIButton!
+    @IBOutlet weak var touchMe: UIButton!
     
     var lowest: Int=0
     var mid: Int=0
@@ -72,7 +73,7 @@ class SettingsViewController: UIViewController {
     @IBAction func lowestIncrease(sender: AnyObject) {
         lowest = ++lowest
         lowestTip.text = "\(lowest)"
-        userDefaults.setInteger(lowest, forKey: lowTipKey )
+        
     
         
         
@@ -82,7 +83,7 @@ class SettingsViewController: UIViewController {
     @IBAction func lowestDecrease(sender: AnyObject) {
         lowest = --lowest
         lowestTip.text = "\(lowest)"
-        userDefaults.setInteger(lowest, forKey: lowTipKey )
+        
         
         
     }
@@ -90,28 +91,28 @@ class SettingsViewController: UIViewController {
     @IBAction func midIncrease(sender: AnyObject) {
         mid = ++mid
         midTip.text = "\(mid)"
-        userDefaults.setInteger(mid , forKey: midTipKey )
+        
         
     }
     
     @IBAction func midDecrease(sender: AnyObject) {
         mid = --mid
         midTip.text = "\(mid)"
-        userDefaults.setInteger(mid , forKey: midTipKey )
+       
         
     }
     
     @IBAction func highestIncrease(sender: AnyObject) {
         highest = ++highest
         highestTip.text = "\(highest)"
-        userDefaults.setInteger(highest, forKey: highTipKey )
+       
         
     }
     
     @IBAction func highestDecrease(sender: AnyObject) {
         highest = --highest
         highestTip.text = "\(highest)"
-        userDefaults.setInteger(highest, forKey: highTipKey )
+        
         
     }
     
@@ -119,19 +120,31 @@ class SettingsViewController: UIViewController {
     @IBAction func OriginalDefaults(sender: AnyObject) {
         lowest = 15
         lowestTip.text = "\(lowest)"
-        userDefaults.setInteger(lowest, forKey: lowTipKey )
+        
         
         mid = 20
         midTip.text = "\(mid)"
-        userDefaults.setInteger(mid , forKey: midTipKey )
+        
         
         highest = 22
         highestTip.text = "\(highest)"
+        
+        
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        userDefaults.setInteger(lowest, forKey: lowTipKey )
+        userDefaults.setInteger(mid , forKey: midTipKey )
         userDefaults.setInteger(highest, forKey: highTipKey )
         
     }
     
  
+//    @IBAction func moveTouchMe(sender: UIButton) {
+//        UIButton.animateWithDuration(1) { () -> Void in
+//            self.touchMe.transform = CGAffineTransformTranslate( self.touchMe.transform, 0.0, -180.0  )
+//    }
 
     
     /*

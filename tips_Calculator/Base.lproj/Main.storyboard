@@ -241,6 +241,14 @@
                                     <action selector="highestDecrease:" destination="JM4-jN-MNm" eventType="touchUpInside" id="orn-CI-CiS"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jxq-VH-xLk">
+                                <rect key="frame" x="31" y="456" width="68" height="30"/>
+                                <color key="backgroundColor" white="0.78772615130000001" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Touch Me"/>
+                                <connections>
+                                    <action selector="moveTouchMe:" destination="JM4-jN-MNm" eventType="touchUpInside" id="Em3-5n-6mN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.95096545290000001" green="1" blue="0.5577895517" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -256,6 +264,7 @@
                         <outlet property="midDecrease" destination="fm6-91-bvu" id="pgF-3M-WBo"/>
                         <outlet property="midIncrease" destination="YKD-ST-E4d" id="k39-S7-cq5"/>
                         <outlet property="midTip" destination="cde-IE-Bxo" id="LIN-58-r4f"/>
+                        <outlet property="touchMe" destination="Jxq-VH-xLk" id="ngb-ip-dnx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xqk-4f-qPh" userLabel="First Responder" sceneMemberID="firstResponder"/>
