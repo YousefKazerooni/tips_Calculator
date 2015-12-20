@@ -14,21 +14,20 @@ let highTipKey = "HighTipKey"
 
 class SettingsViewController: UIViewController {
 
-    //lowest
-    @IBOutlet weak var lowestTip: UILabel!
-    @IBOutlet weak var lowestIncrease: UIButton!
-    @IBOutlet weak var lowestDecrease: UIButton!
-    //mid
-    @IBOutlet weak var midTip: UILabel!
-    @IBOutlet weak var midIncrease: UIButton!
-    @IBOutlet weak var midDecrease: UIButton!
-    //highest
-    @IBOutlet weak var highestTip: UILabel!
-    @IBOutlet weak var highestIncrease: UIButton!
-    @IBOutlet weak var highestDecrease: UIButton!
+   
+    @IBOutlet weak var tipChangeControl: UISegmentedControl!
+    //increase
+    @IBOutlet weak var increaseButton: UIButton!
+    //decrease
+    @IBOutlet weak var decreaseButton: UIButton!
     //back to default
     @IBOutlet weak var initialDefault: UIButton!
     
+    //drop animation
+    //increaseAnimation
+    @IBOutlet weak var increaseAnimation: UIView!
+    //DecreaseAnimation
+    @IBOutlet weak var decreaseAnimation: UIView!
     
    //diagonal animation
     @IBOutlet weak var animatedUIViewRed: UIView!
@@ -38,6 +37,8 @@ class SettingsViewController: UIViewController {
     
     @IBOutlet weak var animatedUIViewMorphing: UIView!
     @IBOutlet weak var animatedUIViewBlue: UIView!
+    
+    
     
     
     var lowest: Int=0
@@ -115,16 +116,65 @@ class SettingsViewController: UIViewController {
             highest = 22}
     
         
-        //diplay the corresponding values on the screne
-        lowestTip.text = "\(lowest)"
-        midTip.text = "\(mid)"
-        highestTip.text = "\(highest)"
+        updatePercentageTitle()
         
         animationSettings()
         
     }
-
     
+    
+    
+    
+    
+    
+    //Changing the title of the segements
+
+    func updatePercentageTitle () {
+        tipChangeControl.setTitle("\(lowest)", forSegmentAtIndex: 0)
+        tipChangeControl.setTitle("\(mid)", forSegmentAtIndex: 1)
+        tipChangeControl.setTitle("\(highest)", forSegmentAtIndex: 2)
+        
+    }
+    
+    //Increasing the percentage
+    
+    func percentageIncrease () {
+        switch tipChangeControl.selectedSegmentIndex {
+        case 0 :
+            lowest = ++lowest
+            tipChangeControl.setTitle("\(lowest)", forSegmentAtIndex: 0)
+        case 1 :
+            mid = ++mid
+            tipChangeControl.setTitle("\(mid)", forSegmentAtIndex: 1)
+        case 2 :
+            highest = ++highest
+             tipChangeControl.setTitle("\(highest)", forSegmentAtIndex: 2)
+        default:
+            print("No increase")
+        }
+    }
+    
+    func percentageDecrease () {
+        switch tipChangeControl.selectedSegmentIndex {
+        case 0 :
+            lowest = --lowest
+            tipChangeControl.setTitle("\(lowest)", forSegmentAtIndex: 0)
+        case 1 :
+            mid = --mid
+            tipChangeControl.setTitle("\(mid)", forSegmentAtIndex: 1)
+        case 2 :
+            highest = --highest
+            tipChangeControl.setTitle("\(highest)", forSegmentAtIndex: 2)
+        default:
+            print("No decrease")
+        }
+    }
+        
+        
+        
+  
+    
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -135,51 +185,43 @@ class SettingsViewController: UIViewController {
     
     
     
-    //buttons: plus and minus
-    @IBAction func lowestIncrease(sender: AnyObject) {
-        lowest = ++lowest
-        lowestTip.text = "\(lowest)"
-    }
+    //INCREASE: button Action
+    @IBAction func increase(sender: AnyObject) {
+        percentageIncrease()
+        
+    
 
-    
-    @IBAction func lowestDecrease(sender: AnyObject) {
-        lowest = --lowest
-        lowestTip.text = "\(lowest)"
-    
-    }
-
-    @IBAction func midIncrease(sender: AnyObject) {
-        mid = ++mid
-        midTip.text = "\(mid)"
+        //animation
+        
+        
+        UIView.animateWithDuration(1) { ()-> Void in
+           self.increaseAnimation.transform = CGAffineTransformTranslate(self.increaseAnimation.transform, 0.0, 300.5  )
+        }
     
     }
     
-    @IBAction func midDecrease(sender: AnyObject) {
-        mid = --mid
-        midTip.text = "\(mid)"
-    }
-    
-    @IBAction func highestIncrease(sender: AnyObject) {
-        highest = ++highest
-        highestTip.text = "\(highest)"
-    }
-    
-    @IBAction func highestDecrease(sender: AnyObject) {
-        highest = --highest
-        highestTip.text = "\(highest)"
+    //DECREASE: button Action
+    @IBAction func decrease(sender: AnyObject) {
+        percentageDecrease()
+        
+        
+        UIView.animateWithDuration(1) { ()-> Void in
+            self.decreaseAnimation.transform = CGAffineTransformTranslate( self.decreaseAnimation.transform, 0.0, 300.5  )
+        }
     }
     
     
     // the "defaults%" button
     @IBAction func OriginalDefaults(sender: AnyObject) {
         lowest = 15
-        lowestTip.text = "\(lowest)"
+        tipChangeControl.setTitle("\(lowest)", forSegmentAtIndex: 0)
         
         mid = 20
-        midTip.text = "\(mid)"
+        tipChangeControl.setTitle("\(mid)", forSegmentAtIndex: 1)
         
         highest = 22
-        highestTip.text = "\(highest)"
+        tipChangeControl.setTitle("\(highest)", forSegmentAtIndex: 2)
+       
         
         
     }

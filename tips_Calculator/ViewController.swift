@@ -10,6 +10,7 @@ import UIKit
 
 let lastBillAmout = "Last_Bill_Amount"
 let lastUsed = "Last_Used"
+let splitAmount = "Last_Amount_Split"
 
 //Counter becomes greater than zero after the first time viewing
 //It is then used to create a dark dividing line in the middle of the page
@@ -22,11 +23,13 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var tipControl: UISegmentedControl!
     @IBOutlet weak var billField: UITextField!
-    @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
+    //slider
+    @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var splitPeople: UITextField!
+    @IBOutlet weak var splitAmount: UILabel!
     //animated UIViews
     @IBOutlet weak var animatedView: UIView!
-    @IBOutlet weak var animatedViewRed: UIView!
     @IBOutlet weak var animatedViewLowest: UIView!
     
     
@@ -41,7 +44,7 @@ class ViewController: UIViewController {
         updatePercentageTitle()
         updatePercentage()
         
-        
+        animationMain()
         
         counter = counter + 1
         if (counter > 1) {
@@ -87,7 +90,7 @@ class ViewController: UIViewController {
         //tipLabel.text = " $\(tip)"
         //totalLabel.text = " $\(total)"
         
-        tipLabel.text = currencyFormatter.stringFromNumber(tip)
+        //tipLabel.text = currencyFormatter.stringFromNumber(tip)
         totalLabel.text = currencyFormatter.stringFromNumber(total)
         
     }
@@ -96,6 +99,8 @@ class ViewController: UIViewController {
     //animation fuction
     
     func animationMain () {
+        
+        
         //defining the final color
         let blue = UIColor(red: 41.0/255.0,
             green: 0.5,
@@ -108,15 +113,6 @@ class ViewController: UIViewController {
         //animating movement and color
         //and incorporating repetition
         
-        
-        //Animating the RED UIView
-        UIView.animateWithDuration(2.0, delay: 0.0, options: options, animations: {
-            
-            // any changes entered in this block will be animated
-            self.animatedViewRed.transform = CGAffineTransformTranslate( self.animatedViewRed.transform, -330.0, 0.0  )
-            self.animatedViewRed.backgroundColor = blue
-            
-            }, completion: nil)
         
         
         //Animating the WHITE UIView
@@ -161,12 +157,11 @@ class ViewController: UIViewController {
         
        
         //intializing the labels on the first launch
-        tipLabel.text = "$0.00"
-        totalLabel.text = "$0.00"
+                totalLabel.text = "$0.00"
        
 
         //calling animation
-        animationMain()
+        //animationMain()
         
     }
     
@@ -177,6 +172,15 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    
+    @IBAction func slider(sender: AnyObject) {
+        let countPeople = Int (slider.value)
+        splitPeople.text = "\( countPeople)"
+        
+        //let afterSplitting =
+        
+    }
+    
     @IBAction func onEditingChanged(sender: AnyObject) {
     
         updatePercentage()
@@ -186,6 +190,8 @@ class ViewController: UIViewController {
     
         view.endEditing (true)
     }
+    
+    
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
