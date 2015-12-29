@@ -11,6 +11,7 @@ import UIKit
 let lowTipKey = "LowTipValue"
 let midTipKey = "MidTipKey"
 let highTipKey = "HighTipKey"
+let segIndex = "LastSegIndex"
 
 class SettingsViewController: UIViewController {
 
@@ -28,71 +29,28 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var increaseAnimation: UIView!
     //DecreaseAnimation
     @IBOutlet weak var decreaseAnimation: UIView!
-    
-   //diagonal animation
-    @IBOutlet weak var animatedUIViewRed: UIView!
-    @IBOutlet weak var animatedUIviewPurple: UIView!
-    @IBOutlet weak var animatedUIViewBlack: UIView!
-    //vertical animation
-    
-    @IBOutlet weak var animatedUIViewMorphing: UIView!
-    @IBOutlet weak var animatedUIViewBlue: UIView!
-    
-    
-    
+
+
     
     var lowest: Int=0
     var mid: Int=0
     var highest: Int=0
     
+    var counterIncrease = 1
+    var counterDecrease = 1
+    
      let userDefaults = NSUserDefaults.standardUserDefaults()
     
-//***************************************************
-    //Animation Function
     
-    func animationSettings () {
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
-        //Diagonal Animation
+        //Checking which segIndex was selected on the previous page
+        tipChangeControl.selectedSegmentIndex = userDefaults.integerForKey(segIndex)
         
-        //Red Square
-        UIView.animateWithDuration(2.5) { ()-> Void in
-            self.animatedUIViewRed.transform = CGAffineTransformTranslate( self.animatedUIViewRed.transform, 293.0, 0.0  )
-        }
-        
-        //Purple Square
-        UIView.animateWithDuration(2.9) { ()-> Void in
-            self.animatedUIviewPurple.transform = CGAffineTransformTranslate( self.animatedUIviewPurple.transform, 266.5, 0.0  )
-        }
-        
-        //Black Square
-        UIView.animateWithDuration(3.2) { ()-> Void in
-            self.animatedUIViewBlack.transform = CGAffineTransformTranslate( self.animatedUIViewBlack.transform, 240.0, 0.0  )
-        }
-        
-        
-        
-        //Vertical animation
-        UIView.animateWithDuration(1) { ()-> Void in
-            self.animatedUIViewBlue.transform = CGAffineTransformTranslate( self.animatedUIViewBlue.transform, 0.0, 126.5  )
-        }
-        
-        //Morphing Vertical animation
-        
-        //defining the final color
-        let blue = UIColor(red: 41.0/255.0,
-            green: 0.5,
-            blue: 185/255.0,
-            alpha: 1.0)
-        
-        
-        UIView.animateWithDuration(2) { ()-> Void in
-            self.animatedUIViewMorphing.transform = CGAffineTransformTranslate( self.animatedUIViewMorphing.transform, 0.0, 126.5  )
-            self.animatedUIViewMorphing.backgroundColor = blue
-        }
+        self.increaseAnimation.alpha = 0
+        self.decreaseAnimation.alpha = 0
     }
-    
-    
-    //*********************************************************
     
    
     override func viewDidLoad() {
@@ -118,7 +76,7 @@ class SettingsViewController: UIViewController {
         
         updatePercentageTitle()
         
-        animationSettings()
+        
         
     }
     
@@ -130,9 +88,9 @@ class SettingsViewController: UIViewController {
     //Changing the title of the segements
 
     func updatePercentageTitle () {
-        tipChangeControl.setTitle("\(lowest)", forSegmentAtIndex: 0)
-        tipChangeControl.setTitle("\(mid)", forSegmentAtIndex: 1)
-        tipChangeControl.setTitle("\(highest)", forSegmentAtIndex: 2)
+        tipChangeControl.setTitle("\(lowest)%", forSegmentAtIndex: 0)
+        tipChangeControl.setTitle("\(mid)%", forSegmentAtIndex: 1)
+        tipChangeControl.setTitle("\(highest)%", forSegmentAtIndex: 2)
         
     }
     
@@ -173,7 +131,6 @@ class SettingsViewController: UIViewController {
         
         
   
-    
 
     
     override func didReceiveMemoryWarning() {
@@ -189,13 +146,30 @@ class SettingsViewController: UIViewController {
     @IBAction func increase(sender: AnyObject) {
         percentageIncrease()
         
-    
+        //animation-- disregard this line
+        
+        counterIncrease = counterIncrease + 1
+        
+        
+        
+        if (counterIncrease % 2 == 0) {
+            UIView.animateWithDuration(1) { ()-> Void in
+                self.increaseAnimation.transform = CGAffineTransformTranslate(self.increaseAnimation.transform, 0.0, 200.5  )
+        
+        }
+            UIView.animateWithDuration(0.5, animations: {
+                // This causes first view to fade in and second view to fade out
+                self.increaseAnimation.alpha = 1
+                
+            })
+            
+      }
+            
+        else {
+            UIView.animateWithDuration(1) { ()-> Void in
+                self.increaseAnimation.transform = CGAffineTransformTranslate(self.increaseAnimation.transform, 0.0, -200.5  )
+            }
 
-        //animation
-        
-        
-        UIView.animateWithDuration(1) { ()-> Void in
-           self.increaseAnimation.transform = CGAffineTransformTranslate(self.increaseAnimation.transform, 0.0, 300.5  )
         }
     
     }
@@ -204,9 +178,24 @@ class SettingsViewController: UIViewController {
     @IBAction func decrease(sender: AnyObject) {
         percentageDecrease()
         
-        
-        UIView.animateWithDuration(1) { ()-> Void in
-            self.decreaseAnimation.transform = CGAffineTransformTranslate( self.decreaseAnimation.transform, 0.0, 300.5  )
+        counterDecrease = counterDecrease + 1
+        if ( counterDecrease % 2 == 0 ) {
+            UIView.animateWithDuration(1) { ()-> Void in
+                self.decreaseAnimation.transform = CGAffineTransformTranslate( self.decreaseAnimation.transform, 0.0, 200.5  )
+        }
+            UIView.animateWithDuration(0.5, animations: {
+                // This causes first view to fade in and second view to fade out
+                self.decreaseAnimation.alpha = 1
+                
+            })
+      }
+            
+            
+        else {
+            UIView.animateWithDuration(1) { ()-> Void in
+                self.decreaseAnimation.transform = CGAffineTransformTranslate( self.decreaseAnimation.transform, 0.0, -200.5  )
+            }
+            
         }
     }
     
@@ -226,7 +215,8 @@ class SettingsViewController: UIViewController {
         
     }
     
-   
+    
+
     
     
     //Saving the changed values to the userDefaults
@@ -236,6 +226,9 @@ class SettingsViewController: UIViewController {
         userDefaults.setInteger(lowest, forKey: lowTipKey )
         userDefaults.setInteger(mid , forKey: midTipKey )
         userDefaults.setInteger(highest, forKey: highTipKey )
+        
+        //Capturing which index is selected
+        userDefaults.setInteger(tipChangeControl.selectedSegmentIndex, forKey: segIndex)
         
     }
     

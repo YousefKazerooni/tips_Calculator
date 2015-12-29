@@ -12,9 +12,6 @@ let lastBillAmout = "Last_Bill_Amount"
 let lastUsed = "Last_Used"
 let splitAmount = "Last_Amount_Split"
 
-//Counter becomes greater than zero after the first time viewing
-//It is then used to create a dark dividing line in the middle of the page
-var counter = 0
 
 class ViewController: UIViewController {
 
@@ -24,15 +21,35 @@ class ViewController: UIViewController {
     @IBOutlet weak var tipControl: UISegmentedControl!
     @IBOutlet weak var billField: UITextField!
     @IBOutlet weak var totalLabel: UILabel!
+    @IBOutlet weak var tipLabel: UILabel!
+    @IBOutlet weak var splitSwitch: UISwitch!
+    
     //slider
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var splitPeople: UITextField!
-    @IBOutlet weak var splitAmount: UILabel!
+    
+    
     //animated UIViews
-    @IBOutlet weak var animatedView: UIView!
-    @IBOutlet weak var animatedViewLowest: UIView!
+    //Top View-- color? or nothing ???+++++++++++
+    @IBOutlet weak var tipView: UIView!
+    //Middle View with the switch -- Moves down
+    @IBOutlet weak var switchView: UIView!
+    //Down View -- Fades in
+    @IBOutlet weak var SplitView: UIView!
     
     
+    //will be used to find out how many people are 
+    //splitting the bill
+    var countPeople: Int!
+    
+    //Declared total. It will then be divided
+    //by the number of people paying
+    var total : Double!
+    
+    //Counter used to determine the position of the switch view
+    var counter = 0
+    
+    //var tip : Double!
     let userDefaults = NSUserDefaults.standardUserDefaults()
     
     
@@ -43,26 +60,10 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
         updatePercentageTitle()
         updatePercentage()
+        tipControl.selectedSegmentIndex = userDefaults.integerForKey(segIndex)
+        //animationMain()
         
-        animationMain()
-        
-        counter = counter + 1
-        if (counter > 1) {
-            
-            let dividingLine = UIView()
-            
-            // set background color to blue
-            dividingLine.backgroundColor = UIColor.blackColor()
-            
-            // set frame (position and size) of the square
-            // iOS coordinate system starts at the top left of the screen
-            // so this square will be at top left of screen, 50x50pt
-            // CG in CGRect stands for Core Graphics
-            dividingLine.frame = CGRect(x: 0, y: 300, width: 400, height: 20)
-            
-            // finally, add the square to the screen
-            self.view.addSubview(dividingLine)
-        }
+       
     }
     
     
@@ -85,61 +86,28 @@ class ViewController: UIViewController {
         
         let billAmount = NSString(string: billField.text!).doubleValue
         let tip = billAmount * tipPercentage
-        let total = billAmount + tip
+        total = billAmount + tip
+        //splitTotal()
         
         //tipLabel.text = " $\(tip)"
         //totalLabel.text = " $\(total)"
         
-        //tipLabel.text = currencyFormatter.stringFromNumber(tip)
+        tipLabel.text = currencyFormatter.stringFromNumber(tip)
         totalLabel.text = currencyFormatter.stringFromNumber(total)
         
     }
     
-    //*********************************************
-    //animation fuction
-    
-    func animationMain () {
-        
-        
-        //defining the final color
-        let blue = UIColor(red: 41.0/255.0,
-            green: 0.5,
-            blue: 185/255.0,
-            alpha: 1.0)
-        //defining repetition
-        let options = UIViewAnimationOptions.Repeat
-        
-        //the function for animation
-        //animating movement and color
-        //and incorporating repetition
-        
-        
-        
-        //Animating the WHITE UIView
-        UIView.animateWithDuration(3.0, delay: 0.0, options: options, animations: {
-            
-            // any changes entered in this block will be animated
-            self.animatedView.transform = CGAffineTransformTranslate( self.animatedView.transform, 330.0, 0.0  )
-            self.animatedView.backgroundColor = blue
-            
-            }, completion: nil)
-        
-        
-        
-        //Animating the Lowest UIView
-        UIView.animateWithDuration(4.0, delay: 0.0, options: options, animations: {
-            
-            // any changes entered in this block will be animated
-            self.animatedViewLowest.transform = CGAffineTransformTranslate( self.animatedViewLowest.transform, 330.0, 0.0  )
-            self.animatedViewLowest.backgroundColor = blue
-            }, completion: nil)
-        
-    }
-    //*********************************************
+   
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //+++++++++++++++++++++
+        //self.navigationController?.navigationBarHidden = true
+        
+        
+        
         // Do any additional setup after loading the view, typically from a nib.
         
         //Checking when the app was last used
@@ -158,10 +126,11 @@ class ViewController: UIViewController {
        
         //intializing the labels on the first launch
                 totalLabel.text = "$0.00"
+        
+        
+        UIView.animateWithDuration (0.01) { ()-> Void in self.switchView.transform = CGAffineTransformTranslate(self.switchView.transform, 0.0, -135.0)
+        }
        
-
-        //calling animation
-        //animationMain()
         
     }
     
@@ -171,24 +140,105 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    //Switching On: SplitView fades in
+    
+    @IBAction func SplitSwitchonValueChanged(sender: UISwitch) {
+        if (self.SplitView.alpha == 0) {
+            UIView.animateWithDuration(0.5, animations: {
+                // This causes first view to fade in and second view to fade out
+                self.SplitView.alpha = 1
+                
+            })
+            
+        }
+        else {
+            UIView.animateWithDuration(0.5, animations: {
+                // This causes first view to fade in and second view to fade out
+                self.SplitView.alpha = 0
+                
+            })
+            
+        }
+        
+        
+//        if (SplitView.alpha == 1) {
+//           SplitView.alpha = 0
+//        }
+//        
+//        else {
+//            SplitView.alpha = 1
+//        }
+//
+      }
 
     
+    
+    
+    //slider
     @IBAction func slider(sender: AnyObject) {
-        let countPeople = Int (slider.value)
+        countPeople = Int (slider.value)
         splitPeople.text = "\( countPeople)"
         
-        //let afterSplitting =
+        //let afterSplitting 
+        
+      //  total = total / Double (countPeople)
+        
+        
         
     }
     
+//    func splitTotal () {
+//        if (total != nil) {
+//        total = total / Double(countPeople)
+//        }
+//    }
+    
+    
+    //The SplitView slides up as user starts using the input field
+    
+    @IBAction func splitPeopleEditingBegin(sender: UITextField) {
+        UIView.animateWithDuration (0.5) { ()-> Void in self.SplitView.transform = CGAffineTransformTranslate(self.SplitView.transform, 0.0, -190.0)
+        }
+    }
+    
+    
+    @IBAction func splitPeoleEditingEnded(sender: UITextField) {
+        UIView.animateWithDuration (0.5) { ()-> Void in self.SplitView.transform = CGAffineTransformTranslate(self.SplitView.transform, 0.0, 190.0)
+        }
+    }
+    
+    
+    
+    //As Bill Amount entered the Labels are updated and the switchView is moved down
     @IBAction func onEditingChanged(sender: AnyObject) {
     
         updatePercentage()
+        counter = counter + 1
+        if (counter == 1) {
+        UIView.animateWithDuration (0.5) { ()-> Void in self.switchView.transform = CGAffineTransformTranslate(self.switchView.transform, 0.0, 137.0)
+        }
+      }
+    
+        
     }
+    
+    
+   
+   
 
     @IBAction func onTap(sender: AnyObject) {
     
         view.endEditing (true)
+//        if (self.tipView.alpha == 0) {
+//            UIView.animateWithDuration(0.5, animations: {
+//                // This causes first view to fade in and second view to fade out
+//                self.tipView.alpha = 1
+//                
+//            })
+//            
+//        }
+
     }
     
     
@@ -199,7 +249,12 @@ class ViewController: UIViewController {
         
         userDefaults.setObject(NSDate(), forKey: lastUsed)
         userDefaults.setObject(billField.text, forKey: lastBillAmout)
+        
+        //Capturing which index is selected
+        userDefaults.setInteger(tipControl.selectedSegmentIndex, forKey: segIndex)
+        
         userDefaults.synchronize()
+        
         
     }
 
