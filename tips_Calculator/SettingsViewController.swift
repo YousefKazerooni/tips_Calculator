@@ -27,10 +27,16 @@ class SettingsViewController: UIViewController {
     //drop animation
     //increaseAnimation
     @IBOutlet weak var increaseAnimation: UIView!
-    //DecreaseAnimation
+    //decreaseAnimation
     @IBOutlet weak var decreaseAnimation: UIView!
+    
+    
 
 
+    
+   
+    
+    
     
     var lowest: Int=0
     var mid: Int=0
@@ -50,11 +56,15 @@ class SettingsViewController: UIViewController {
         
         self.increaseAnimation.alpha = 0
         self.decreaseAnimation.alpha = 0
+        
+
+        
     }
     
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         
         //After loading we check to see
@@ -78,6 +88,7 @@ class SettingsViewController: UIViewController {
         
         
         
+        
     }
     
     
@@ -92,6 +103,9 @@ class SettingsViewController: UIViewController {
         tipChangeControl.setTitle("\(mid)%", forSegmentAtIndex: 1)
         tipChangeControl.setTitle("\(highest)%", forSegmentAtIndex: 2)
         
+        
+
+        
     }
     
     //Increasing the percentage
@@ -100,13 +114,13 @@ class SettingsViewController: UIViewController {
         switch tipChangeControl.selectedSegmentIndex {
         case 0 :
             lowest = ++lowest
-            tipChangeControl.setTitle("\(lowest)", forSegmentAtIndex: 0)
+            tipChangeControl.setTitle("\(lowest)%", forSegmentAtIndex: 0)
         case 1 :
             mid = ++mid
-            tipChangeControl.setTitle("\(mid)", forSegmentAtIndex: 1)
+            tipChangeControl.setTitle("\(mid)%", forSegmentAtIndex: 1)
         case 2 :
             highest = ++highest
-             tipChangeControl.setTitle("\(highest)", forSegmentAtIndex: 2)
+             tipChangeControl.setTitle("\(highest)%", forSegmentAtIndex: 2)
         default:
             print("No increase")
         }
@@ -116,13 +130,13 @@ class SettingsViewController: UIViewController {
         switch tipChangeControl.selectedSegmentIndex {
         case 0 :
             lowest = --lowest
-            tipChangeControl.setTitle("\(lowest)", forSegmentAtIndex: 0)
+            tipChangeControl.setTitle("\(lowest)%", forSegmentAtIndex: 0)
         case 1 :
             mid = --mid
-            tipChangeControl.setTitle("\(mid)", forSegmentAtIndex: 1)
+            tipChangeControl.setTitle("\(mid)%", forSegmentAtIndex: 1)
         case 2 :
             highest = --highest
-            tipChangeControl.setTitle("\(highest)", forSegmentAtIndex: 2)
+            tipChangeControl.setTitle("\(highest)%", forSegmentAtIndex: 2)
         default:
             print("No decrease")
         }
@@ -149,9 +163,6 @@ class SettingsViewController: UIViewController {
         //animation-- disregard this line
         
         counterIncrease = counterIncrease + 1
-        
-        
-        
         if (counterIncrease % 2 == 0) {
             UIView.animateWithDuration(1) { ()-> Void in
                 self.increaseAnimation.transform = CGAffineTransformTranslate(self.increaseAnimation.transform, 0.0, 200.5  )
@@ -166,9 +177,11 @@ class SettingsViewController: UIViewController {
       }
             
         else {
+        
             UIView.animateWithDuration(1) { ()-> Void in
                 self.increaseAnimation.transform = CGAffineTransformTranslate(self.increaseAnimation.transform, 0.0, -200.5  )
             }
+        
 
         }
     
@@ -179,7 +192,7 @@ class SettingsViewController: UIViewController {
         percentageDecrease()
         
         counterDecrease = counterDecrease + 1
-        if ( counterDecrease % 2 == 0 ) {
+       if ( counterDecrease % 2 == 0 ) {
             UIView.animateWithDuration(1) { ()-> Void in
                 self.decreaseAnimation.transform = CGAffineTransformTranslate( self.decreaseAnimation.transform, 0.0, 200.5  )
         }
@@ -191,25 +204,28 @@ class SettingsViewController: UIViewController {
       }
             
             
-        else {
-            UIView.animateWithDuration(1) { ()-> Void in
-                self.decreaseAnimation.transform = CGAffineTransformTranslate( self.decreaseAnimation.transform, 0.0, -200.5  )
+       else {
+        
+                UIView.animateWithDuration(1) { ()-> Void in
+                    self.decreaseAnimation.transform = CGAffineTransformTranslate( self.decreaseAnimation.transform, 0.0, -200.5  )
+                }
             }
-            
-        }
-    }
+       
+       }
+    
+    
     
     
     // the "defaults%" button
     @IBAction func OriginalDefaults(sender: AnyObject) {
         lowest = 15
-        tipChangeControl.setTitle("\(lowest)", forSegmentAtIndex: 0)
+        tipChangeControl.setTitle("\(lowest)%", forSegmentAtIndex: 0)
         
         mid = 20
-        tipChangeControl.setTitle("\(mid)", forSegmentAtIndex: 1)
+        tipChangeControl.setTitle("\(mid)%", forSegmentAtIndex: 1)
         
         highest = 22
-        tipChangeControl.setTitle("\(highest)", forSegmentAtIndex: 2)
+        tipChangeControl.setTitle("\(highest)%", forSegmentAtIndex: 2)
        
         
         

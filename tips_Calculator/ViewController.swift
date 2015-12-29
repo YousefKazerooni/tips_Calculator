@@ -23,6 +23,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var splitSwitch: UISwitch!
+    @IBOutlet weak var perPersonLabel: UILabel!
     
     //slider
     @IBOutlet weak var slider: UISlider!
@@ -45,9 +46,13 @@ class ViewController: UIViewController {
     //Declared total. It will then be divided
     //by the number of people paying
     var total : Double!
+    var people: Int!
+    var peopleTextField: Double!
+    var perPerson: Double!
     
     //Counter used to determine the position of the switch view
     var counter = 0
+    
     
     //var tip : Double!
     let userDefaults = NSUserDefaults.standardUserDefaults()
@@ -89,23 +94,67 @@ class ViewController: UIViewController {
         total = billAmount + tip
         //splitTotal()
         
+        //determining the value of the slider
+        sliderValueDetermination()
+        
+        //assigning the value of the slider to the textfield
+        splitPeople.text = "\( people)"
+        
+        //Using the value inside the text field for calculations
+        peopleTextField = NSString (string: splitPeople.text!).doubleValue
+        perPerson = total / peopleTextField
+        
+        
+        
         //tipLabel.text = " $\(tip)"
         //totalLabel.text = " $\(total)"
         
         tipLabel.text = currencyFormatter.stringFromNumber(tip)
         totalLabel.text = currencyFormatter.stringFromNumber(total)
-        
+        perPersonLabel.text = currencyFormatter.stringFromNumber(perPerson)
     }
     
-   
+    
+    
+    
+    func sliderValueDetermination () {
+        //Splitting
+        if (slider.value >= 2 && slider.value < 2.5){
+            people = 2
+        }
+            
+        else if (slider.value >= 2.5 && slider.value < 3.5){
+            people = 3
+        }
+        else if ( slider.value >= 3.5 && slider.value < 4.5) {
+            people = 4
+        }
+        else if ( slider.value >= 4.5 && slider.value < 5.5) {
+            people = 5
+        }
+        else if ( slider.value >= 5.5 && slider.value < 6.5) {
+            people = 6
+        }
+        else if ( slider.value >= 6.5 && slider.value < 7.5) {
+            people = 7
+        }
+        else if ( slider.value >= 7.5 && slider.value < 8.5) {
+            people = 8
+        }
+        else if ( slider.value >= 8.5 && slider.value < 9.5) {
+            people = 9
+        }
+        else if ( slider.value >= 9.5 && slider.value <= 10) {
+            people = 10
+        }
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //+++++++++++++++++++++
-        //self.navigationController?.navigationBarHidden = true
         
+        self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
         
         // Do any additional setup after loading the view, typically from a nib.
@@ -161,15 +210,6 @@ class ViewController: UIViewController {
             
         }
         
-        
-//        if (SplitView.alpha == 1) {
-//           SplitView.alpha = 0
-//        }
-//        
-//        else {
-//            SplitView.alpha = 1
-//        }
-//
       }
 
     
@@ -177,28 +217,21 @@ class ViewController: UIViewController {
     
     //slider
     @IBAction func slider(sender: AnyObject) {
-        countPeople = Int (slider.value)
-        splitPeople.text = "\( countPeople)"
+        updatePercentage()
+        //splitPeople.text = "\( people)"
         
-        //let afterSplitting 
-        
-      //  total = total / Double (countPeople)
-        
-        
+    
         
     }
     
-//    func splitTotal () {
-//        if (total != nil) {
-//        total = total / Double(countPeople)
-//        }
-//    }
-    
-    
     //The SplitView slides up as user starts using the input field
     
+    @IBAction func splitonEditingChanged(sender: UITextField) {
+        updatePercentage()
+    }
+    
     @IBAction func splitPeopleEditingBegin(sender: UITextField) {
-        UIView.animateWithDuration (0.5) { ()-> Void in self.SplitView.transform = CGAffineTransformTranslate(self.SplitView.transform, 0.0, -190.0)
+        UIView.animateWithDuration (0.5) { ()-> Void in self.SplitView.transform = CGAffineTransformTranslate(self.SplitView.transform, 0.0, -200.0)
         }
     }
     
@@ -214,6 +247,8 @@ class ViewController: UIViewController {
     @IBAction func onEditingChanged(sender: AnyObject) {
     
         updatePercentage()
+        
+        //switch view slides down when start editting
         counter = counter + 1
         if (counter == 1) {
         UIView.animateWithDuration (0.5) { ()-> Void in self.switchView.transform = CGAffineTransformTranslate(self.switchView.transform, 0.0, 137.0)
@@ -230,14 +265,15 @@ class ViewController: UIViewController {
     @IBAction func onTap(sender: AnyObject) {
     
         view.endEditing (true)
-//        if (self.tipView.alpha == 0) {
-//            UIView.animateWithDuration(0.5, animations: {
-//                // This causes first view to fade in and second view to fade out
-//                self.tipView.alpha = 1
-//                
-//            })
-//            
-//        }
+        
+        //switch view slides down when tap anywhere on the mainview
+        counter = counter + 1
+        if (counter == 1) {
+            UIView.animateWithDuration (0.5) { ()-> Void in self.switchView.transform = CGAffineTransformTranslate(self.switchView.transform, 0.0, 137.0)
+            }
+        }
+
+
 
     }
     

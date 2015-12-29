@@ -87,57 +87,58 @@
                                         </connections>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Split" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sqF-Wp-Vqh">
-                                        <rect key="frame" x="19" y="21" width="44" height="27"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="18" y="21" width="45" height="27"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                                        <color key="textColor" red="0.31372549020000001" green="0.20392156859999999" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mg8-x7-rpF">
+                                        <rect key="frame" x="0.0" y="65" width="321" height="242"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Per Person" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WrO-hZ-ao5">
+                                                <rect key="frame" x="20" y="99" width="104" height="27"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="People" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAm-75-UxB">
+                                                <rect key="frame" x="20" y="1" width="75" height="48"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="2" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="aq7-FR-CV0">
+                                                <rect key="frame" x="94" y="13" width="205" height="31"/>
+                                                <color key="minimumTrackTintColor" red="0.30384612041138659" green="0.84969600640112508" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="maximumTrackTintColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                <color key="thumbTintColor" red="0.30384612039999997" green="0.84969600639999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <action selector="slider:" destination="BYZ-38-t0r" eventType="valueChanged" id="xJH-Yk-jsC"/>
+                                                </connections>
+                                            </slider>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$ 0.0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YM5-O5-ecH">
+                                                <rect key="frame" x="133" y="92" width="164" height="42"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="35"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="2" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="5ZA-uF-PeS">
+                                                <rect key="frame" x="200" y="45" width="97" height="30"/>
+                                                <color key="backgroundColor" white="1" alpha="0.28000000000000003" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert"/>
+                                                <connections>
+                                                    <action selector="splitPeoleEditingEnded:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="4kk-yT-9ql"/>
+                                                    <action selector="splitPeopleEditingBegin:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="ZBf-0U-aGt"/>
+                                                    <action selector="splitonEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="mvz-im-ewc"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.31372549020000001" green="0.20392156859999999" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.75374283820991095" green="0.71174891953541153" blue="0.9178896037444445" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <view alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mg8-x7-rpF">
-                                <rect key="frame" x="-1" y="326" width="321" height="242"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Per Person" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WrO-hZ-ao5">
-                                        <rect key="frame" x="20" y="90" width="104" height="27"/>
-                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="People" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAm-75-UxB">
-                                        <rect key="frame" x="20" y="1" width="75" height="48"/>
-                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="2" maxValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="aq7-FR-CV0">
-                                        <rect key="frame" x="94" y="13" width="205" height="31"/>
-                                        <color key="minimumTrackTintColor" red="0.30384612041138659" green="0.84969600640112508" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="maximumTrackTintColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                        <color key="thumbTintColor" red="0.30384612039999997" green="0.84969600639999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="slider:" destination="BYZ-38-t0r" eventType="valueChanged" id="xJH-Yk-jsC"/>
-                                        </connections>
-                                    </slider>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$ 0.0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YM5-O5-ecH">
-                                        <rect key="frame" x="133" y="90" width="164" height="42"/>
-                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="35"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="2" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="5ZA-uF-PeS">
-                                        <rect key="frame" x="200" y="42" width="97" height="30"/>
-                                        <color key="backgroundColor" white="1" alpha="0.28000000000000003" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert"/>
-                                        <connections>
-                                            <action selector="splitPeoleEditingEnded:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="4kk-yT-9ql"/>
-                                            <action selector="splitPeopleEditingBegin:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="ZBf-0U-aGt"/>
-                                        </connections>
-                                    </textField>
-                                </subviews>
-                                <color key="backgroundColor" red="0.31372549020000001" green="0.20392156859999999" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.31372549020000001" green="0.20392156859999999" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -156,6 +157,7 @@
                     <connections>
                         <outlet property="SplitView" destination="Mg8-x7-rpF" id="Whs-wh-nPM"/>
                         <outlet property="billField" destination="GZp-16-Q8T" id="lMD-ED-Kr6"/>
+                        <outlet property="perPersonLabel" destination="YM5-O5-ecH" id="UP2-f9-9pO"/>
                         <outlet property="slider" destination="aq7-FR-CV0" id="oX7-vO-9hq"/>
                         <outlet property="splitPeople" destination="5ZA-uF-PeS" id="6Cd-f6-yEu"/>
                         <outlet property="splitSwitch" destination="Xfc-O1-zvG" id="QkA-Zp-TsV"/>
@@ -175,7 +177,7 @@
             </objects>
             <point key="canvasLocation" x="734" y="286"/>
         </scene>
-        <!--Settings-->
+        <!--Settings View Controller-->
         <scene sceneID="tAV-8Z-Ab8">
             <objects>
                 <viewController id="JM4-jN-MNm" customClass="SettingsViewController" customModule="tips_Calculator" customModuleProvider="target" sceneMemberID="viewController">
@@ -197,7 +199,7 @@
                                 <color key="tintColor" red="0.31372549020000001" green="0.20392156859999999" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ndb-iV-fQ5">
-                                <rect key="frame" x="130" y="150" width="64" height="30"/>
+                                <rect key="frame" x="165" y="150" width="128" height="30"/>
                                 <color key="backgroundColor" red="0.31372549020000001" green="0.20392156859999999" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -210,7 +212,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zeh-yV-O1a">
-                                <rect key="frame" x="38" y="150" width="72" height="30"/>
+                                <rect key="frame" x="38" y="150" width="119" height="30"/>
                                 <color key="backgroundColor" red="0.31372549020000001" green="0.20392156859999999" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -222,8 +224,16 @@
                                     <action selector="increase:" destination="JM4-jN-MNm" eventType="touchUpInside" id="BOl-tI-qOu"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YAG-4l-haA">
+                                <rect key="frame" x="165" y="188" width="128" height="48"/>
+                                <color key="backgroundColor" red="0.74385400349999997" green="0.38429956160000001" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lBL-w3-Gdu">
+                                <rect key="frame" x="38" y="188" width="119" height="48"/>
+                                <color key="backgroundColor" red="0.90055714735953218" green="0.21281500953266178" blue="0.95211884469696972" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZQ-zo-vfn">
-                                <rect key="frame" x="211" y="150" width="82" height="67"/>
+                                <rect key="frame" x="38" y="438" width="255" height="30"/>
                                 <color key="backgroundColor" red="0.31372549020000001" green="0.20392156859999999" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -232,23 +242,15 @@
                                     <action selector="OriginalDefaults:" destination="JM4-jN-MNm" eventType="touchUpInside" id="vsQ-Ba-l1d"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YAG-4l-haA">
-                                <rect key="frame" x="130" y="188" width="64" height="48"/>
-                                <color key="backgroundColor" red="0.74385400349999997" green="0.38429956160000001" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lBL-w3-Gdu">
-                                <rect key="frame" x="38" y="188" width="72" height="48"/>
-                                <color key="backgroundColor" red="0.90055714735953218" green="0.21281500953266178" blue="0.95211884469696972" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.75374283819999999" green="0.71174891949999997" blue="0.91788960369999995" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.75374283819999999" green="0.71174891949999997" blue="0.91788960369999995" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Settings" id="Vni-6I-Px5"/>
+                    <navigationItem key="navigationItem" id="Vni-6I-Px5"/>
                     <connections>
-                        <outlet property="decreaseAnimation" destination="YAG-4l-haA" id="LFT-Ot-DF1"/>
+                        <outlet property="decreaseAnimation" destination="YAG-4l-haA" id="eos-oi-nCw"/>
                         <outlet property="decreaseButton" destination="ndb-iV-fQ5" id="EbM-k7-0aP"/>
-                        <outlet property="increaseAnimation" destination="lBL-w3-Gdu" id="Abv-jO-vY0"/>
+                        <outlet property="increaseAnimation" destination="lBL-w3-Gdu" id="HZ9-gi-Dce"/>
                         <outlet property="increaseButton" destination="zeh-yV-O1a" id="8ut-ni-YJv"/>
                         <outlet property="initialDefault" destination="tZQ-zo-vfn" id="jcH-4N-50P"/>
                         <outlet property="tipChangeControl" destination="IwW-Vw-geC" id="DYx-so-Bra"/>
