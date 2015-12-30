@@ -165,7 +165,7 @@ class SettingsViewController: UIViewController {
         counterIncrease = counterIncrease + 1
         if (counterIncrease % 2 == 0) {
             UIView.animateWithDuration(1) { ()-> Void in
-                self.increaseAnimation.transform = CGAffineTransformTranslate(self.increaseAnimation.transform, 0.0, 200.5  )
+                self.increaseAnimation.transform = CGAffineTransformTranslate(self.increaseAnimation.transform, 0.0, 170.5  )
         
         }
             UIView.animateWithDuration(0.5, animations: {
@@ -179,7 +179,7 @@ class SettingsViewController: UIViewController {
         else {
         
             UIView.animateWithDuration(1) { ()-> Void in
-                self.increaseAnimation.transform = CGAffineTransformTranslate(self.increaseAnimation.transform, 0.0, -200.5  )
+                self.increaseAnimation.transform = CGAffineTransformTranslate(self.increaseAnimation.transform, 0.0, -170.5  )
             }
         
 
@@ -194,7 +194,7 @@ class SettingsViewController: UIViewController {
         counterDecrease = counterDecrease + 1
        if ( counterDecrease % 2 == 0 ) {
             UIView.animateWithDuration(1) { ()-> Void in
-                self.decreaseAnimation.transform = CGAffineTransformTranslate( self.decreaseAnimation.transform, 0.0, 200.5  )
+                self.decreaseAnimation.transform = CGAffineTransformTranslate( self.decreaseAnimation.transform, 0.0, 170.5  )
         }
             UIView.animateWithDuration(0.5, animations: {
                 // This causes first view to fade in and second view to fade out
@@ -207,7 +207,7 @@ class SettingsViewController: UIViewController {
        else {
         
                 UIView.animateWithDuration(1) { ()-> Void in
-                    self.decreaseAnimation.transform = CGAffineTransformTranslate( self.decreaseAnimation.transform, 0.0, -200.5  )
+                    self.decreaseAnimation.transform = CGAffineTransformTranslate( self.decreaseAnimation.transform, 0.0, -170.5  )
                 }
             }
        
