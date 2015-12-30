@@ -24,10 +24,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var splitSwitch: UISwitch!
     @IBOutlet weak var perPersonLabel: UILabel!
-    
     //slider
+    @IBOutlet weak var SplitPeople: UILabel!
     @IBOutlet weak var slider: UISlider!
-    @IBOutlet weak var splitPeople: UITextField!
+    
     
     
     //animated UIViews
@@ -98,10 +98,10 @@ class ViewController: UIViewController {
         sliderValueDetermination()
         
         //assigning the value of the slider to the textfield
-        splitPeople.text = "\( people)"
+        SplitPeople.text = "\( people)"
         
         //Using the value inside the text field for calculations
-        peopleTextField = NSString (string: splitPeople.text!).doubleValue
+        peopleTextField = NSString (string: SplitPeople.text!).doubleValue
         perPerson = total / peopleTextField
         
         
@@ -225,21 +225,6 @@ class ViewController: UIViewController {
     }
     
     //The SplitView slides up as user starts using the input field
-    
-    @IBAction func splitonEditingChanged(sender: UITextField) {
-        updatePercentage()
-    }
-    
-    @IBAction func splitPeopleEditingBegin(sender: UITextField) {
-        UIView.animateWithDuration (0.5) { ()-> Void in self.SplitView.transform = CGAffineTransformTranslate(self.SplitView.transform, 0.0, -200.0)
-        }
-    }
-    
-    
-    @IBAction func splitPeoleEditingEnded(sender: UITextField) {
-        UIView.animateWithDuration (0.5) { ()-> Void in self.SplitView.transform = CGAffineTransformTranslate(self.SplitView.transform, 0.0, 190.0)
-        }
-    }
     
     
     

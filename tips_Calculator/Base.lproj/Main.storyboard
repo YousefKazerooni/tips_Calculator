@@ -88,8 +88,8 @@
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Split" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sqF-Wp-Vqh">
                                         <rect key="frame" x="18" y="21" width="45" height="27"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
-                                        <color key="textColor" red="0.31372549020000001" green="0.20392156859999999" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mg8-x7-rpF">
@@ -122,23 +122,18 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="2" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="5ZA-uF-PeS">
-                                                <rect key="frame" x="200" y="45" width="97" height="30"/>
-                                                <color key="backgroundColor" white="1" alpha="0.28000000000000003" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5DN-f6-rWa">
+                                                <rect key="frame" x="228" y="51" width="69" height="27"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert"/>
-                                                <connections>
-                                                    <action selector="splitPeoleEditingEnded:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="4kk-yT-9ql"/>
-                                                    <action selector="splitPeopleEditingBegin:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="ZBf-0U-aGt"/>
-                                                    <action selector="splitonEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="mvz-im-ewc"/>
-                                                </connections>
-                                            </textField>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" red="0.31372549020000001" green="0.20392156859999999" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.75374283820991095" green="0.71174891953541153" blue="0.9178896037444445" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.50781965539999996" green="0.41568627450000001" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.31372549020000001" green="0.20392156859999999" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -148,18 +143,19 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Tip Calculator" id="NZv-Ys-c5p">
-                        <barButtonItem key="rightBarButtonItem" title="settings" id="fkq-5P-0ST">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="7u5-NK-X9X"/>
+                        <barButtonItem key="rightBarButtonItem" image="settings_3" id="fkq-5P-0ST">
                             <connections>
                                 <segue destination="JM4-jN-MNm" kind="push" id="8tk-o6-KVD"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="SplitPeople" destination="5DN-f6-rWa" id="QqJ-FH-Mgn"/>
                         <outlet property="SplitView" destination="Mg8-x7-rpF" id="Whs-wh-nPM"/>
                         <outlet property="billField" destination="GZp-16-Q8T" id="lMD-ED-Kr6"/>
                         <outlet property="perPersonLabel" destination="YM5-O5-ecH" id="UP2-f9-9pO"/>
                         <outlet property="slider" destination="aq7-FR-CV0" id="oX7-vO-9hq"/>
-                        <outlet property="splitPeople" destination="5ZA-uF-PeS" id="6Cd-f6-yEu"/>
                         <outlet property="splitSwitch" destination="Xfc-O1-zvG" id="QkA-Zp-TsV"/>
                         <outlet property="switchView" destination="qlP-vl-fYx" id="qDB-KH-ZcI"/>
                         <outlet property="tipControl" destination="WCc-CX-zTi" id="UN3-c1-gag"/>
@@ -175,7 +171,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="734" y="286"/>
+            <point key="canvasLocation" x="739" y="286"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="tAV-8Z-Ab8">
@@ -292,5 +288,7 @@
     <resources>
         <image name="chineseFood" width="229" height="228"/>
         <image name="glass" width="234" height="229"/>
+        <image name="settings_3" width="28" height="29"/>
     </resources>
+    <color key="tintColor" red="0.31372549020000001" green="0.20392156859999999" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
 </document>
