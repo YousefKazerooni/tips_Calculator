@@ -21,9 +21,18 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-- [ ] List anything else that you can get done to improve the app functionality!
+- [x] List anything else that you can get done to improve the app functionality!
+- Added Split function
+- Added a default button for percentage choices
+
 
 ## Video Walkthrough 
+
+Here's a walkthrough of the new implementation from the increment-animation branch:
+
+![demo](New_Animated_Calculator.gif)
+
+
 
 Here's a walkthrough of implemented user stories:
 
