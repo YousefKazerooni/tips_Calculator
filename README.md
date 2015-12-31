@@ -29,7 +29,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of the new implementation from the increment branch:
 
-![demo](New_Animated_Calculator.gif)
+![demo](New_Calculator_gif2.gif)
 
 
 
