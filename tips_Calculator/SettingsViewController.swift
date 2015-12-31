@@ -160,9 +160,11 @@ class SettingsViewController: UIViewController {
     @IBAction func increase(sender: AnyObject) {
         percentageIncrease()
         
-        //animation-- disregard this line
+        
+        //counterIncrease is a variable set to 1; it determines whether each click is odd or even
         
         counterIncrease = counterIncrease + 1
+        
         if (counterIncrease % 2 == 0) {
             UIView.animateWithDuration(1) { ()-> Void in
                 self.increaseAnimation.transform = CGAffineTransformTranslate(self.increaseAnimation.transform, 0.0, 170.5  )

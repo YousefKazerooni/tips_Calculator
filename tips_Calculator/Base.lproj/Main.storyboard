@@ -192,30 +192,44 @@
                                     <segment title="Second"/>
                                     <segment title=""/>
                                 </segments>
-                                <color key="tintColor" red="0.31372549020000001" green="0.20392156859999999" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.30384612039999997" green="0.84969600639999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ndb-iV-fQ5">
                                 <rect key="frame" x="165" y="150" width="128" height="30"/>
-                                <color key="backgroundColor" red="0.31372549020000001" green="0.20392156859999999" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.97647058819999999" green="0.0" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="4"/>
                                 <state key="normal" title="-">
+                                    <color key="titleColor" red="0.31372549020000001" green="0.20392156859999999" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="decrease:" destination="JM4-jN-MNm" eventType="touchUpInside" id="hgt-E1-GLM"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zeh-yV-O1a">
                                 <rect key="frame" x="38" y="150" width="119" height="30"/>
-                                <color key="backgroundColor" red="0.31372549020000001" green="0.20392156859999999" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <color key="backgroundColor" red="0.30384612039999997" green="0.84969600639999998" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="4"/>
                                 <state key="normal" title="+">
+                                    <color key="titleColor" red="0.31372549020000001" green="0.20392156859999999" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="increase:" destination="JM4-jN-MNm" eventType="touchUpInside" id="BOl-tI-qOu"/>
                                 </connections>
@@ -223,33 +237,39 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YAG-4l-haA">
                                 <rect key="frame" x="165" y="188" width="128" height="60"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="chineseFood" translatesAutoresizingMaskIntoConstraints="NO" id="D5A-Ei-3au">
-                                        <rect key="frame" x="32" y="5" width="64" height="55"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bear" translatesAutoresizingMaskIntoConstraints="NO" id="D5A-Ei-3au">
+                                        <rect key="frame" x="37" y="8" width="51" height="52"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.31372549020000001" green="0.20392156859999999" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lBL-w3-Gdu">
                                 <rect key="frame" x="38" y="188" width="119" height="60"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="glass" translatesAutoresizingMaskIntoConstraints="NO" id="2Yq-4R-nof">
-                                        <rect key="frame" x="32" y="0.0" width="69" height="60"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iceCream" translatesAutoresizingMaskIntoConstraints="NO" id="2Yq-4R-nof">
+                                        <rect key="frame" x="41" y="8" width="36" height="52"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.31372549020000001" green="0.20392156859999999" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZQ-zo-vfn">
                                 <rect key="frame" x="38" y="438" width="255" height="30"/>
-                                <color key="backgroundColor" red="0.31372549020000001" green="0.20392156859999999" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.50781965539999996" green="0.41568627450000001" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Default %"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="OriginalDefaults:" destination="JM4-jN-MNm" eventType="touchUpInside" id="vsQ-Ba-l1d"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.75374283819999999" green="0.71174891949999997" blue="0.91788960369999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.31372549020000001" green="0.20392156859999999" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.75374283819999999" green="0.71174891949999997" blue="0.91788960369999995" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="Vni-6I-Px5"/>
@@ -286,8 +306,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chineseFood" width="229" height="228"/>
-        <image name="glass" width="234" height="229"/>
+        <image name="bear" width="41" height="43"/>
+        <image name="iceCream" width="31" height="45"/>
         <image name="settings_3" width="28" height="29"/>
     </resources>
     <color key="tintColor" red="0.31372549020000001" green="0.20392156859999999" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>

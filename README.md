@@ -35,7 +35,7 @@ Here's a walkthrough of the new implementation from the increment branch:
 
 Here's a walkthrough of the early implementation:
 
-![demo](Animated_Calculator4.gif)
+![demo](Animated_Calculator5.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
